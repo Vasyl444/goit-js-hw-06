@@ -12,22 +12,8 @@ class Storage {
             this.#items.push(newItem);
     }
     removeItem(itemToRemove) {
-        const array = [];
-        for (let item of this.#items) {
-            if (item !== itemToRemove) {
-                array.push(item);
-            }
-        }
-        return this.#items = array;
+       this.#items = this.#items.filter(item => item !== itemToRemove)
     }
-    /*
-    Другий спосіб вирішення завдання по removeItem :
-    removeItem(itemToRemove) {
-       if (this.#items.includes(itemToRemove)) {
-           this.#items.splice(this.#items.indexOf(itemToRemove), 1);
-        }
-    } 
-    */
 }
 const storage = new Storage(["Nanitoids", "Prolonger", "Antigravitator"]);
 console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator"]
